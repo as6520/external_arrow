@@ -1,8 +1,6 @@
 from skbuild import setup
 import os.path as osp
 
-fletch_root = osp.join('/mnt','usb1', 'ashringi', 'pypi', 'fletch', 'build', 'release-static')
-kwiver_root = osp.join('/mnt','usb1', 'ashringi', 'pypi', 'kwiver', 'build', 'release')
 
 setup( name='external_arrow',
        version='0.0.1',
@@ -19,8 +17,6 @@ setup( name='external_arrow',
                     '-DCMAKE_BUILD_TYPE=Release',
                     '-DENABLE_CPP_ARROW=ON',
                     '-DKWIVER_PYTHON_MAJOR_VERSION=3',
-                    '-Dfletch_DIR={0}'.format(fletch_root),
-                    '-Dkwiver_DIR={0}'.format(kwiver_root)
                   ],
        cmake_install_dir='external_arrow',
        entry_points={
