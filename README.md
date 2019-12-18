@@ -57,10 +57,11 @@ This repository is an example for registering external plugins with kwiver and d
  
 
 ## REGISTERING ARROW/PROCESSES FROM EXTERNAL PACKAGE
-Kwiver uses entrypoints to register vital arrows and sprokit processes. 
-|  Language|Entrypoint  |
+Kwiver uses entrypoints to register vital arrows and sprokit processes.
+
+|Language|Entrypoint|
 |:---:|:---:|
-|C++|kwiver.cpp_search_paths  |
+|C++|kwiver.cpp_search_paths|
 |python|kwiver.python_plugin_registration|
 
 ### PYTHON ARROW/PROCESS
