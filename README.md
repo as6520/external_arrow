@@ -7,20 +7,14 @@ This repository is an example for registering external plugins with kwiver and d
 2. [libexpat1-dev](https://packages.ubuntu.com/xenial/libexpat1-dev)
 3. [libgtk2.0-dev](https://packages.ubuntu.com/xenial/libgtk2.0-dev)
 4. [liblapack-dev](https://packages.ubuntu.com/xenial/liblapack-dev)
-5. [python 3.5](https://www.python.org/downloads/release/python-350/)
+5. [libpython3-dev](https://packages.ubuntu.com/xenial/libpython3-dev)
+6. [kwiver](https://pypi.org/project/kwiver/)
+7. [diva-framework](https://pypi.org/project/diva-framework/)
 
 ## INSTALLATION
-### KWIVER
-
-    pip install kwiver-1.4.0-cp35-cp35m-linux_x86_64.whl
-    
-### DIVA
-
-    pip install diva-0.0.1-cp35-cp35m-linux_x86_64.whl
-
 ### EXTERNAL ARROW
 
-    pip install external_arrow-0.0.1-cp35-cp35m-linux_x86_64.whl
+    pip install external_arrow
 
 ## VERIFYING REGISTRATION
 
@@ -76,8 +70,6 @@ The c++ process and arrows are registered using `kwiver.cpp_search_paths` in set
 
     'kwiver.cpp_search_paths':
     ['simple_detector=external_arrow.register_cpp_arrow:get_cpp_path']
-  where `external_arrow.register_cpp_arrow:get_cpp_path` is a python function that returns the directory where c++ libraries for `external_arrow` are present in the package. 
-#### Note: Kwiver wheel does not provide a development environment for c++ libraries that depend on kwiver. We would recommend a static build of kwiver and diva to create the python package.
-
-## SAMPLE REPOSITORY 
-[external_arrow](https://github.com/as6520/external_arrow)
+  where `external_arrow.register_cpp_arrow:get_cpp_path` is a python function that returns the directory where c++ libraries for `external_arrow` are present in the package.
+  
+#### Note: Kwiver wheel does not provide the development environment for c++ extension that depend on kwiver. A c++ `arrows` and `sprokit processes` based extension would be built against the static build of [fletch](https://github.com/Kitware/fletch) and [kwiver](https://github.com/Kitware/kwiver). 
