@@ -1,6 +1,6 @@
 # EXTERNAL ARROW
 
-This repository is an example for registering external plugins with kwiver and diva wheel 
+This repository is an example for registering external plugins with kwiver and diva wheel
 
 ## REQUIREMENTS
 1. [libgl1-mesa-dev](https://packages.ubuntu.com/search?keywords=libgl1-mesa-dev)
@@ -19,7 +19,7 @@ This repository is an example for registering external plugins with kwiver and d
 ## VERIFYING REGISTRATION
 
     plugin_explorer --algo image_object_detector
-    
+
     Plugins that implement type "image_object_detector"
     ---------------------
     Info on algorithm type "image_object_detector" implementation "TestObjectDetector"
@@ -48,7 +48,7 @@ This repository is an example for registering external plugins with kwiver and d
 		    OCV implementation to create detections from heatmaps
 `TestObjectDetector` and `external_arrow.arrow.test_object_detector` are python and c++ arrows registered by external_arrow
 
- 
+
 
 ## REGISTERING ARROW/PROCESSES FROM EXTERNAL PACKAGE
 Kwiver uses entrypoints to register vital arrows and sprokit processes.
@@ -61,7 +61,7 @@ Kwiver uses entrypoints to register vital arrows and sprokit processes.
 ### PYTHON ARROW/PROCESS
 The python process and arrows are registered using `kwiver.python_plugin_registration` in setup.py. Every process and arrows in the external package must be registered individually by specifying a unique key-value pair associated with the entrypoint . For example
 
-    'kwiver.python_plugin_registration': 
+    'kwiver.python_plugin_registration':
     [ 'simple_detector=external_arrow.arrow.test_object_detector']
 where `external_arrow.arrow.test_object_detector` is python arrow containing `__vital_algorithm_register__`
 
@@ -71,5 +71,5 @@ The c++ process and arrows are registered using `kwiver.cpp_search_paths` in set
     'kwiver.cpp_search_paths':
     ['simple_detector=external_arrow.register_cpp_arrow:get_cpp_path']
   where `external_arrow.register_cpp_arrow:get_cpp_path` is a python function that returns the directory where c++ libraries for `external_arrow` are present in the package.
-  
-#### Note: Kwiver wheel does not provide the development environment for c++ extension that depend on kwiver. A c++ `arrows` and `sprokit processes` based extension would be built against the static build of [fletch](https://github.com/Kitware/fletch) and [kwiver](https://github.com/Kitware/kwiver). 
+
+#### Note: Kwiver wheel does not provide the development environment for c++ extension that depend on kwiver. A c++ `vital arrow` and `sprokit process` based extension would be built against the static build of [fletch](https://github.com/Kitware/fletch) and [kwiver](https://github.com/Kitware/kwiver).
