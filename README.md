@@ -14,7 +14,7 @@ This repository is an example for registering external plugins with kwiver and d
 ## INSTALLATION
 ### EXTERNAL ARROW
 
-    pip install external_arrow
+    pip install external-arrow
 
 ## VERIFYING REGISTRATION
 
