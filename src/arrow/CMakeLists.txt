@@ -17,6 +17,14 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} )
 kwiver_add_plugin( test_object_detector
   SUBDIR       "cpp_arrow"
   SOURCES      ${sources} ${headers}
-  PRIVATE      ${KWIVER_LIBRARIES}
+  PRIVATE      kwiversys
+               vital
+               vital_exceptions
+               vital_algo
+               vital_config
+               vital_util
+               vital_logger
+               vital_vpm
+
 )
 
