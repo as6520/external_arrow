@@ -24,7 +24,8 @@ setup( name='external_arrow',
                         'scikit-build'
                       ],
        install_requires=[
-                            'kwiver==1.4.2',
+                            'kwiver>=1.4.2',
+                            'diva-framework>=0.0.3'
                         ],
        cmake_args=[
                     '-DCMAKE_BUILD_TYPE=Release',
